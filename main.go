@@ -16,6 +16,7 @@ type Info struct {
 
 func index(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Content-Type", "application/json")
 	my_info := Info{}
 
 	my_info.SlackUsername = "victoryotaghogho"
@@ -24,8 +25,6 @@ func index(w http.ResponseWriter, r *http.Request) {
 	my_info.Bio = "I'm physicist and an aspiring web developer(backend). I'm currently engaging in an internship programming initiated by HNG where I hope to further improve in working with other developers as well as fostering long last relationships. "
 
 	json.NewEncoder(w).Encode(my_info)
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(200)
 }
 
 func main() {
